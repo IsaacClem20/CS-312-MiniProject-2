@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.send("UV Guard is running!");
+    res.render("index.ejs");
 });
 
 app.listen(PORT, () => {
