@@ -14,7 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", {
+        uvData: null
+    });
 });
 
 app.post("/check-uv", async (req, res) => {
