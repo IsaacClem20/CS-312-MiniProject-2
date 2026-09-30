@@ -85,3 +85,61 @@ button {
 button:hover {
     background-color: #1d4ed8;
 }
+
+.results-card {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto 50px;
+    padding: 30px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.results-card h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #1e40af;
+}
+
+.uv-main {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.uv-main p {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.uv-number {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #f59e0b;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.uv-risk {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc2626;
+}
+
+.recommendation {
+    text-align: center;
+    background-color: #eff6ff;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.uv-details {
+    margin-top: 20px;
+}
+
+.uv-details p {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+}
