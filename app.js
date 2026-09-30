@@ -44,6 +44,14 @@ app.post("/check-uv", async (req, res) => {
 
         const uv = response.data.result.uv;
 
+        const maxUvTime = new Date(response.data.result.uv_max_time);
+
+        // Just a format to make the time readable in the max UV time
+        const formattedMaxUvTime = maxUvTime.toLocaleTimeString([], {
+            hour: "numeric",
+            minute: "2-digit"
+        });
+
         let uvRisk;
 
         if (uv <= 2) {
@@ -58,9 +66,23 @@ app.post("/check-uv", async (req, res) => {
             uvRisk = "Extreme";
         }
 
+
+        let sunscreenMessage;
+
+        if (uv >= 3) {
+            sunscreenMessage = "Sunscreen is recommended.";
+        } else if (uv >=8) {
+            sunscreenMessage = "UV is insane! bettah wear sunscreen cuz!.";
+        } else {
+            sunscreenMessage = "Lower UV risk.";
+        }
+
+        // rendering the string variables to be displayed
         res.render("index.ejs", {
             uvData: response.data.result,
-            uvRisk: uvRisk
+            uvRisk: uvRisk,
+            sunscreenMessage: sunscreenMessage,
+            formattedMaxUvTime: formattedMaxUvTime
         });
 
     } catch (error) {
