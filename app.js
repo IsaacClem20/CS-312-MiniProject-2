@@ -69,10 +69,10 @@ app.post("/check-uv", async (req, res) => {
 
         let sunscreenMessage;
 
-        if (uv >= 3) {
+        if (uv >= 8) {
+            sunscreenMessage = "UV is insane! bettah wear sunscreen cuz!";
+        } else if (uv >= 3) {
             sunscreenMessage = "Sunscreen is recommended.";
-        } else if (uv >=8) {
-            sunscreenMessage = "UV is insane! bettah wear sunscreen cuz!.";
         } else {
             sunscreenMessage = "Lower UV risk.";
         }
