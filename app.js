@@ -42,8 +42,25 @@ app.post("/check-uv", async (req, res) => {
 
         console.log(response.data);
 
+        const uv = response.data.result.uv;
+
+        let uvRisk;
+
+        if (uv <= 2) {
+            uvRisk = "Low";
+        } else if (uv <= 5) {
+            uvRisk = "Moderate";
+        } else if (uv <= 7) {
+            uvRisk = "High";
+        } else if (uv <= 10) {
+            uvRisk = "Very High";
+        } else {
+            uvRisk = "Extreme";
+        }
+
         res.render("index.ejs", {
-            uvData: response.data.result
+            uvData: response.data.result,
+            uvRisk: uvRisk
         });
 
     } catch (error) {
